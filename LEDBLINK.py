@@ -1,0 +1,31 @@
+import RPi.GPIO as GPIO
+import time
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(7,GPIO.OUT)
+GPIO.setup(11,GPIO.OUT)
+GPIO.setup(13,GPIO.OUT)
+GPIO.setup(15,GPIO.OUT)
+GPIO.setup(18,GPIO.OUT)
+GPIO.setup(37,GPIO.OUT)
+for x in range(0,1000):
+    GPIO.output(18,True)
+    time.sleep(0.7)
+    GPIO.output(15,True)
+    time.sleep(0.7)
+    GPIO.output(7,True)
+    time.sleep(0.7)
+    GPIO.output(11,True)
+    time.sleep(3)
+    GPIO.output(11,False)
+    GPIO.output(18,False)
+    GPIO.output(15,False)
+    GPIO.output(7,False)
+    GPIO.output(13,True)
+    time.sleep(5)
+    GPIO.output(13,False)
+    for y in range(0,1):
+        GPIO.output(37,True)
+        time.sleep(1)
+        GPIO.output(37,False)
+
+GPIO.cleanup()
